@@ -1,0 +1,13 @@
+{
+  "name": "experiment-4-node-server",
+  "version": "1.0.0",
+  "description": "Experiment 4: a Node.js and Express server that delivers static HTML pages.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

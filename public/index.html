@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f4ed">
+    <meta name="description" content="An interactive demonstration of Node.js and Express serving static web pages.">
+    <title>NodeServe — Interactive Web Server</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="NodeServe home"><span class="brand-mark" aria-hidden="true">N</span><span>NodeServe</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
+        <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation">
+          <a href="/" data-nav="home">Home</a>
+          <a href="/about" data-nav="about">About</a>
+          <a href="/contact" data-nav="contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Toggle color theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Theme</span></button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero page-shell" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-dot"></span> Experiment 4 <span class="eyebrow-divider">/</span> Node.js + Express Static Server</p>
+          <h1 id="hero-title">A small server.<br><span class="highlight-text">A whole web.</span></h1>
+          <p class="hero-description">See how a Node.js server turns a request into a page. Three routes, one public folder, and a clear view of what happens in between.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#experiment">Explore experiment <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="/about">How it works <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="tech-list" aria-label="Technologies used">
+            <span>Node.js</span><span>Express.js</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+          </div>
+        </div>
+
+        <aside class="status-panel reveal" aria-label="Server status">
+          <div class="panel-topline"><span class="panel-label">LOCAL ENVIRONMENT</span><span class="live-indicator"><span></span> LIVE</span></div>
+          <div class="status-main"><span class="status-orbit" aria-hidden="true"><span></span></span><div><p class="status-caption">SERVER STATUS</p><h2>SERVER ONLINE</h2></div></div>
+          <div class="terminal-window">
+            <div class="terminal-bar"><span></span><span></span><span></span><span class="terminal-title">node server.js</span></div>
+            <div class="terminal-body"><p><span class="terminal-prompt">›</span> <span class="terminal-command">listening on</span></p><p class="terminal-url">localhost:3000</p><p class="terminal-muted">ready for requests<span class="cursor">_</span></p></div>
+          </div>
+          <button class="status-check" type="button" data-server-check><span aria-hidden="true">↻</span> Check connection</button>
+          <p class="status-feedback" data-server-feedback aria-live="polite">This page is being served from the public folder.</p>
+        </aside>
+      </section>
+
+      <section class="intro-band" id="experiment">
+        <div class="page-shell intro-grid">
+          <div class="section-heading reveal"><p class="eyebrow">THE EXPERIMENT</p><h2>From a browser request<br>to a page on screen.</h2></div>
+          <div class="intro-copy reveal"><p>This project demonstrates a basic Node.js web server using Express. Express maps friendly URLs to HTML files, then serves the page assets from a single <code>public/</code> directory.</p><a class="text-link" href="/about">Read the walkthrough <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </section>
+
+      <section class="flow-section page-shell" aria-labelledby="flow-title">
+        <div class="section-title-row reveal"><div><p class="eyebrow">REQUEST LIFECYCLE</p><h2 id="flow-title">Follow the request</h2></div><span class="section-index">01 — 05</span></div>
+        <div class="flow-track reveal" aria-label="Browser sends an HTTP request to Node.js and Express, which reads files from public and returns HTML, CSS and JavaScript to the browser">
+          <div class="flow-node"><span class="flow-icon browser-icon" aria-hidden="true">▣</span><span class="flow-label">Browser</span><span class="flow-detail">asks for a page</span></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node"><span class="flow-icon request-icon" aria-hidden="true">⇄</span><span class="flow-label">HTTP request</span><span class="flow-detail">GET /about</span></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-node-server"><span class="flow-icon server-icon" aria-hidden="true">{ }</span><span class="flow-label">Node.js + Express</span><span class="flow-detail">matches a route</span></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node"><span class="flow-icon folder-icon" aria-hidden="true">▰</span><span class="flow-label">public/</span><span class="flow-detail">finds the files</span></div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node"><span class="flow-icon response-icon" aria-hidden="true">↩</span><span class="flow-label">Browser response</span><span class="flow-detail">renders the page</span></div>
+        </div>
+        <p class="flow-note reveal"><span class="note-mark" aria-hidden="true">i</span> HTML is returned first. The browser then requests its CSS and JavaScript as separate static files.</p>
+      </section>
+
+      <section class="concept-section" aria-labelledby="concept-title">
+        <div class="page-shell">
+          <div class="section-title-row reveal"><div><p class="eyebrow">FOUR PARTS, ONE RESPONSE</p><h2 id="concept-title">The pieces behind the page</h2></div><span class="section-index">THE BASICS</span></div>
+          <div class="concept-grid">
+            <article class="concept-card reveal"><span class="card-number">01</span><span class="card-symbol symbol-lime" aria-hidden="true">↗</span><h3>Client request</h3><p>A browser asks the server for a URL, such as <code>/about</code>.</p></article>
+            <article class="concept-card reveal"><span class="card-number">02</span><span class="card-symbol symbol-coral" aria-hidden="true">{ }</span><h3>Express server</h3><p>Express receives the HTTP request and matches its route.</p></article>
+            <article class="concept-card reveal"><span class="card-number">03</span><span class="card-symbol symbol-blue" aria-hidden="true">▰</span><h3>Static files</h3><p>The server returns HTML and makes CSS, JavaScript, and images available.</p></article>
+            <article class="concept-card reveal"><span class="card-number">04</span><span class="card-symbol symbol-yellow" aria-hidden="true">⌁</span><h3>Browser response</h3><p>The browser renders the response and runs the page interactions.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-band page-shell" aria-label="Project facts">
+        <div class="stat-item reveal"><span class="stat-number" data-counter="3">0</span><span class="stat-label">HTML pages</span></div>
+        <div class="stat-item reveal"><span class="stat-number" data-counter="1">0</span><span class="stat-label">Static directory</span></div>
+        <div class="stat-item reveal"><span class="stat-number" data-counter="0">0</span><span class="stat-label">Databases needed</span></div>
+        <div class="stat-aside reveal"><span class="stat-asterisk" aria-hidden="true">✳</span><p>Small enough to understand.<br>Real enough to demonstrate.</p></div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="page-shell footer-inner"><a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true">N</span><span>NodeServe</span></a><p>Experiment 4 · Static pages, served locally.</p><span class="footer-year">© <span data-year></span></span></div></footer>
+  </body>
+</html>

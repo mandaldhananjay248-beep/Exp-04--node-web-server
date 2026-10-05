@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f4ed">
+    <meta name="description" content="Learn how Node.js, Express, and static files work together in Experiment 4.">
+    <title>About the Experiment — NodeServe</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><div class="header-inner">
+      <a class="brand" href="/" aria-label="NodeServe home"><span class="brand-mark" aria-hidden="true">N</span><span>NodeServe</span></a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-navigation"><span></span><span></span></button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Main navigation"><a href="/" data-nav="home">Home</a><a href="/about" data-nav="about">About</a><a href="/contact" data-nav="contact">Contact</a></nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme" title="Toggle color theme"><span class="theme-icon" aria-hidden="true">◐</span><span class="theme-label">Theme</span></button>
+    </div></header>
+    <main id="main">
+      <section class="page-hero page-shell">
+        <div class="page-hero-copy reveal"><p class="eyebrow"><span class="eyebrow-dot"></span> THE BUILD, EXPLAINED</p><h1>What happens<br><span class="highlight-text">between clicks?</span></h1><p class="hero-description">A friendly walkthrough of the tools and request flow behind this static website.</p></div>
+        <div class="page-hero-stamp reveal"><span class="stamp-top">EXPERIMENT</span><span class="stamp-number">04</span><span class="stamp-bottom">NODE + EXPRESS</span></div>
+      </section>
+
+      <section class="definition-section page-shell" aria-label="Core concepts">
+        <article class="definition-row reveal"><span class="definition-index">01</span><div><h2>What is Node.js?</h2><p>Node.js is a runtime that lets JavaScript run outside a web browser. In this experiment, it runs the server program and listens for browser requests.</p></div><span class="definition-tag">RUNTIME</span></article>
+        <article class="definition-row reveal"><span class="definition-index">02</span><div><h2>What is Express.js?</h2><p>Express is a lightweight web framework for Node.js. It makes it straightforward to define URL routes and serve files in response to HTTP requests.</p></div><span class="definition-tag">FRAMEWORK</span></article>
+        <article class="definition-row reveal"><span class="definition-index">03</span><div><h2>What is a static file?</h2><p>A static file is sent to the browser as it is stored, rather than being generated from database records. HTML, CSS, JavaScript, and images can all be static files.</p></div><span class="definition-tag">ASSET</span></article>
+        <article class="definition-row reveal"><span class="definition-index">04</span><div><h2>How does this experiment work?</h2><p>Express maps <code>/</code>, <code>/about</code>, and <code>/contact</code> to HTML files. Its static middleware makes the contents of <code>public/</code> available to the browser.</p></div><span class="definition-tag">REQUEST → RESPONSE</span></article>
+      </section>
+
+      <section class="steps-section" aria-labelledby="steps-title"><div class="page-shell"><div class="section-title-row reveal"><div><p class="eyebrow">ONE REQUEST, SIX STEPS</p><h2 id="steps-title">The route to a rendered page</h2></div><span class="section-index">HOW IT WORKS</span></div>
+        <ol class="step-list">
+          <li class="step-item reveal"><span class="step-count">01</span><div><h3>Browser sends a request</h3><p>You visit a URL, and the browser sends an HTTP request to the server.</p></div><span class="step-code">GET /about</span></li>
+          <li class="step-item reveal"><span class="step-count">02</span><div><h3>Express receives it</h3><p>The Express application receives the request on its local port.</p></div><span class="step-code">localhost:3000</span></li>
+          <li class="step-item reveal"><span class="step-count">03</span><div><h3>A route is matched</h3><p>The URL is matched to a route in <code>server.js</code>.</p></div><span class="step-code">app.get('/about')</span></li>
+          <li class="step-item reveal"><span class="step-count">04</span><div><h3>The HTML file is returned</h3><p>Express sends the matching HTML page as the response.</p></div><span class="step-code">about.html</span></li>
+          <li class="step-item reveal"><span class="step-count">05</span><div><h3>The browser loads assets</h3><p>Static middleware serves the linked CSS and JavaScript files from <code>public/</code>.</p></div><span class="step-code">public/css · public/js</span></li>
+          <li class="step-item reveal"><span class="step-count">06</span><div><h3>The page becomes interactive</h3><p>The browser renders the page and runs its client-side JavaScript.</p></div><span class="step-code">HTML + CSS + JS</span></li>
+        </ol>
+      </div></section>
+
+      <section class="objective-section page-shell"><div class="objective-copy reveal"><p class="eyebrow">EXPERIMENT OBJECTIVE</p><h2>Learn by following<br>the response.</h2><p>The purpose is to learn how a Node.js server can deliver static HTML pages using Express. By tracing each URL to a file, the relationship between server routes and browser assets becomes visible.</p></div><div class="tech-panel reveal"><span class="panel-label">TECHNOLOGY USED</span><ul class="tech-used"><li><span>01</span>Node.js</li><li><span>02</span>Express.js</li><li><span>03</span>HTML5</li><li><span>04</span>CSS3</li><li><span>05</span>Vanilla JavaScript</li></ul></div></section>
+      <section class="next-step page-shell reveal"><div><p class="eyebrow">SEE THE FORM IN ACTION</p><h2>Static pages can still respond.</h2></div><a class="button button-primary" href="/contact">Visit contact page <span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer class="site-footer"><div class="page-shell footer-inner"><a class="brand footer-brand" href="/"><span class="brand-mark" aria-hidden="true">N</span><span>NodeServe</span></a><p>Experiment 4 · Static pages, served locally.</p><span class="footer-year">© <span data-year></span></span></div></footer>
+  </body>
+</html>
